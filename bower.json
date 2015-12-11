@@ -1,0 +1,16 @@
+{
+  "name": "AngularJS-Starter",
+  "version": "1.0.0",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "bootstrap-css": "~3.3.4"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,37 @@
+{
+  "name": "AngularJS-Starter",
+  "version": "1.0.0",
+  "description": "Einfaches Start-Projekt für AngularJS",
+  "repository": "XX",
+  "license": "MIT",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "Gedoplan, Dominik Mathmann",
+  "contributors": [],
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "bower": "^1.7.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-injector": "^0.6.1",
+    "grunt-maven-tasks": "^1.3.5",
+    "grunt-ng-annotate": "^1.0.1",
+    "grunt-postcss": "^0.7.1",
+    "grunt-usemin": "^3.1.1",
+    "grunt-wiredep": "^2.0.0",
+    "load-grunt-tasks": "^3.3.0"
+  }
+}
