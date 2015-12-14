@@ -91,7 +91,7 @@ module.exports = function (grunt) {
             release: {
                 expand: true,
                 cwd: 'public_html',
-                src: ['{,**/}*.html', 'resources/**'],
+                src: ['{,**/}*.html', 'resources/{fonts,img}/**'],
                 dest: 'dist/'
             }
         },
