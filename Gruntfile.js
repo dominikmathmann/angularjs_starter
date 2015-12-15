@@ -81,7 +81,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'public_html/resources/styles/',
                         src: '*.css',
-                        dest: '.tmp/styles/'
+                        dest: '.tmp/resources/styles/'
                     }]
             }
         },
@@ -91,7 +91,7 @@ module.exports = function (grunt) {
             release: {
                 expand: true,
                 cwd: 'public_html',
-                src: ['{,**/}*.html', 'resources/{fonts,img}/**'],
+                src: ['{,modules/**/}*.html', 'resources/{fonts,img}/**'],
                 dest: 'dist/'
             }
         },
