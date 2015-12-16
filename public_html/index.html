@@ -66,22 +66,37 @@
         <div class="container" ui-view>
         </div>
 
+        <!-- build:js scripts/globalize.js -->
+        <!-- injector:globalize:js -->
+        <script src="bower_components/cldrjs/dist/cldr.js"></script>
+        <script src="bower_components/cldrjs/dist/cldr/event.js"></script>
+        <script src="bower_components/cldrjs/dist/cldr/supplemental.js"></script>
+        <script src="bower_components/cldrjs/dist/cldr/unresolved.js"></script>
+        <script src="bower_components/globalize/dist/globalize.js"></script>
+        <script src="bower_components/globalize/dist/globalize/number.js"></script>
+        <script src="bower_components/globalize/dist/globalize/date.js"></script>
+        <!-- endinjector -->
+        <!-- endbuild -->
+
         <!-- build:js scripts/ext.js -->
         <!-- injector:bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.js"></script>
+        <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
         <!-- endinjector -->
         <!-- endbuild -->
-        
+
         <!-- build:js scripts/modules.js -->
         <!-- injector:js -->
         <script src="app.js"></script>
+        <script src="modules/globalize/globalize-services.js"></script>
         <script src="modules/home/home-controller.js"></script>
         <!-- endinjector -->
         <!-- endbuild -->
-        
+
     </body>
 
 </html>

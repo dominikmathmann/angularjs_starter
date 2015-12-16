@@ -3,9 +3,9 @@
 
     angular.module("AngularStarter.home", [])
 
-            .controller("home", function () {
+            .controller("home", function (GlobalizeLanguageLoader) {
                 var vm = this;
-                vm.hello = "Hello From AngularJS - Home";
+                vm.date=GlobalizeLanguageLoader.get().formatDate(new Date());
             });
 })();
 

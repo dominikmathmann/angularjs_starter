@@ -39,6 +39,19 @@ module.exports = function (grunt) {
                     'public_html/index.html': ['bower.json', 'public_html/{,modules/**/}*.js', 'public_html/resources/styles/*.css']
                 }
             },
+            globalize: {
+                options: {
+                    starttag: "<!-- injector:globalize:{{ext}} -->"
+                },
+                files: {
+                    'public_html/index.html': [
+                        'public_html/bower_components/cldrjs/dist/{cldr,cldr/*}.js',
+                        'public_html/bower_components/globalize/dist/globalize.js',
+                        'public_html/bower_components/globalize/dist/globalize/number.js',
+                        'public_html/bower_components/globalize/dist/globalize/date.js'
+                    ]
+                }
+            },
             prepare: {
                 options: {
                     min: true,
@@ -91,7 +104,13 @@ module.exports = function (grunt) {
             release: {
                 expand: true,
                 cwd: 'public_html',
-                src: ['{,modules/**/}*.html', 'resources/{fonts,img}/**'],
+                src: [
+                    '{,modules/**/}*.html',
+                    'resources/{fonts,img}/**',
+                    'resources/i18n/*.json',
+                    'resources/i18n/cldr-data/supplemental/*.json',
+                    'resources/i18n/cldr-data/main/{de,en}/*.json'
+                ],
                 dest: 'dist/'
             }
         },
@@ -107,13 +126,11 @@ module.exports = function (grunt) {
                 dest: 'dist'
             }
         },
-        
         usemin: {
             html: ['dist/{,*/}*.html'],
             css: ['dist/styles/{,*/}*.css'],
             js: ['dist/scripts/{,*/}*.js']
         },
-        
         // grunt-contrib-htmlmin
         // minimiert die größe von HTML Dateien
         htmlmin: {
@@ -162,6 +179,7 @@ module.exports = function (grunt) {
     grunt.registerTask("development", [
         // Sourcen für die Entwicklung setzen
         'injector:development',
+        'injector:globalize',
         // Änderungen an Bower/index.html = neu generieren
         'watch:index'
     ]);
@@ -179,6 +197,7 @@ module.exports = function (grunt) {
         'copy:release',
         // min Versionen (und unsere ngAnnotatet-Vorbereiteten Sourcen) referenzieren
         'injector:prepare',
+        'injector:globalize',
         // usemin Konfigurieren
         'useminPrepare',
         // Zusammenfassen

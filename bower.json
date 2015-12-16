@@ -1,15 +1,18 @@
 {
-  "name": "AngularJS-Starter",
-  "version": "1.0.0",
-  "ignore": [
-    ".jshintrc",
-    "**/*.txt"
-  ],
-  "dependencies": {
-    "bootstrap": "3.3.4",
-    "angular": "~1.4.8",
-    "angular-ui-router": "~0.2.15",
-    "jquery": "~2.1.4"
-  },
-  "devDependencies": {}
+    "name": "AngularJS-Starter",
+    "version": "1.0.0",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+        "bootstrap": "3.3.4",
+        "angular": "~1.4.8",
+        "angular-ui-router": "~0.2.15",
+        "jquery": "~2.1.4",
+        "globalize": "~1.0.0",
+        "angular-translate": "~2.8.1",
+        "angular-translate-loader-static-files": "~2.8.1"
+    },
+    "devDependencies": {}
 }
