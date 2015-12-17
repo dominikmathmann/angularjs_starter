@@ -8,14 +8,9 @@
                             abstract: true,
                             template: '<div ui-view></div>',
                             resolve: {
-                                _init_: function ($window, GlobalizeLanguageLoader, $q) {
-                                    var defer = $q.defer();
+                                _init_: function ($window, GlobalizeLanguageLoader) {
                                     var lang = $window.navigator.language || $window.navigator.userLanguage;
-                                    GlobalizeLanguageLoader.loadLanguage(lang).then(function () {
-                                        defer.resolve();
-                                    });
-
-                                    return defer.promise;
+                                    return GlobalizeLanguageLoader.loadLanguage(lang);
                                 }
                             }
 
