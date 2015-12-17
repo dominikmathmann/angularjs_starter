@@ -4,18 +4,7 @@
 
             .config(function ($stateProvider, $urlRouterProvider, $translateProvider) {
                 $stateProvider
-                        .state('app', {
-                            abstract: true,
-                            template: '<div ui-view></div>',
-                            resolve: {
-                                _init_: function ($window, GlobalizeLanguageLoader) {
-                                    var lang = $window.navigator.language || $window.navigator.userLanguage;
-                                    return GlobalizeLanguageLoader.loadLanguage(lang);
-                                }
-                            }
-
-                        })
-                        .state('app.home', {
+                        .state('home', {
                             url: '/home',
                             templateUrl: 'modules/home/home.html',
                             controller: 'home',

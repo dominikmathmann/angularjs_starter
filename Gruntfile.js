@@ -154,7 +154,7 @@ module.exports = function (grunt) {
         // bestimmte Tasks ausführen kann. 
         watch: {
             index: {
-                files: ['bower.json', 'public_html/index.html'],
+                files: ['bower.json', 'public_html/index.html', 'Gruntfile.js'],
                 tasks: ['injector:development']
             }
         },

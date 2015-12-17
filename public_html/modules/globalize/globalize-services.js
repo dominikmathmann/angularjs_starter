@@ -4,8 +4,8 @@
     angular.module("globalize.services", [])
 
             .factory("GlobalizeLanguageLoader", function ($http, $q) {
-                var cldrPath='resources/i18n/cldr-data';
-                
+                var cldrPath = 'resources/i18n/cldr-data';
+
                 var commonData = [
                     // für numerische Formate
                     '/supplemental/likelySubtags.json',
@@ -37,40 +37,25 @@
 
                 };
 
-                var globalizeInstance;
-
                 return {
                     loadLanguage: function (language)
                     {
                         var def = $q.defer();
+                        var cldrData = buildReferences(language);
+                        var cldrDataPromises = cldrData.map(function (url) {
+                            return $http.get(url);
+                        });
 
-                        if (!globalizeInstance || globalizeInstance.cldr.locale !== language)
-                        {
-
-                            var cldrData = buildReferences(language);
-                            var cldrDataPromises = cldrData.map(function (url) {
-                                return $http.get(url);
+                        $q.all(cldrDataPromises).then(function (response) {
+                            response.forEach(function (element) {
+                                Globalize.load(element.data);
                             });
-
-                            $q.all(cldrDataPromises).then(function (response) {
-                                response.forEach(function (element) {
-                                    Globalize.load(element.data);
-                                });
-                                globalizeInstance = new Globalize(language);
-                                def.resolve();
-                            }, function () {
-                                def.reject();
-                            });
-                        }
-                        else
-                        {
-                            def.resolve();
-                        }
+                            def.resolve(new Globalize(language));
+                        }, function () {
+                            def.reject();
+                        });
 
                         return def.promise;
-                    },
-                    get: function () {
-                        return globalizeInstance;
                     }
                 };
             });

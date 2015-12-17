@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AngularStarter">
+<html>
 
     <head>
         <meta charset="utf-8">
@@ -70,7 +70,8 @@
         <!-- injector:globalize:js -->
         <script src="bower_components/cldrjs/dist/cldr.js"></script>
         <script src="bower_components/cldrjs/dist/cldr/event.js"></script>
-
+        <script src="bower_components/cldrjs/dist/cldr/supplemental.js"></script>
+        <script src="bower_components/cldrjs/dist/cldr/unresolved.js"></script>
         <script src="bower_components/globalize/dist/globalize.js"></script>
         <script src="bower_components/globalize/dist/globalize/number.js"></script>
         <script src="bower_components/globalize/dist/globalize/date.js"></script>
@@ -91,6 +92,7 @@
         <!-- build:js scripts/modules.js -->
         <!-- injector:js -->
         <script src="app.js"></script>
+        <script src="boot.js"></script>
         <script src="modules/globalize/globalize-services.js"></script>
         <script src="modules/home/home-controller.js"></script>
         <!-- endinjector -->
